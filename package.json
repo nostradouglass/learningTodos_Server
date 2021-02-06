@@ -1,0 +1,28 @@
+{
+  "name": "learningtodos_server",
+  "version": "1.0.0",
+  "description": "Todos List for things to learn and things learned",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/dist/server.js",
+    "watch": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kelly Douglass",
+  "license": "ISC",
+  "dependencies": {
+    "@types/compression": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "connect-mongo": "^3.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.0",
+    "mongoose": "^5.11.15"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.25",
+    "nodemon": "^2.0.7"
+  }
+}
