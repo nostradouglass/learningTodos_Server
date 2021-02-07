@@ -22,6 +22,7 @@ mongoose_1.default.Promise = global.Promise;
 mongoose_1.default.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
 });
 mongoose_1.default.connection
     .once("open", () => console.log("Connected to MongoDb instance."))

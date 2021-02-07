@@ -7,17 +7,17 @@ import {
   GraphQLList,
 } from "graphql";
 
-
-
-const TodoType = new GraphQLObjectType({
-  name: "TodoType",
-  fields: () => ({
-    id: { type: GraphQLID },
-    todoItem: { type: GraphQLString },
-    completed: { type: GraphQLBoolean },
-    percentComplete: { type: GraphQLInt },
-    notes: { type: GraphQLString },
-  }),
-});
+const TodoType: GraphQLObjectType<string, () => object> = new GraphQLObjectType(
+  {
+    name: "TodoType",
+    fields: () => ({
+      id: { type: GraphQLID },
+      todoItem: { type: GraphQLString },
+      completed: { type: GraphQLBoolean },
+      percentComplete: { type: GraphQLInt },
+      notes: { type: GraphQLString },
+    }),
+  }
+);
 
 export default TodoType;

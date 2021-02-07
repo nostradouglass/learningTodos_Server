@@ -1,10 +1,9 @@
+import graphql, { GraphQLSchema } from "graphql";
 
-import graphql, { GraphQLSchema } from 'graphql'
-
-
-import RootQueryType from './root_query_types'
-
+import RootQueryType from "./root_query_types";
+import { mutation } from "./mutations";
 
 export default new GraphQLSchema({
   query: RootQueryType,
+  mutation: mutation,
 });

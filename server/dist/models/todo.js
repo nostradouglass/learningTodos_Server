@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
-const TodoSchema = new mongoose_1.Schema({
-    //id: { type: String },
+let TodoSchema = new mongoose_1.Schema({
     todoItem: { type: String },
     completed: { type: Boolean },
     percentComplete: { type: Number },
