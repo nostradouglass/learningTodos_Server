@@ -5,6 +5,7 @@ import { graphqlHTTP } from "express-graphql";
 import mongoose from "mongoose";
 import schema from "./schema/schema";
 import logger from "morgan";
+import cors from "cors";
 let privateConfig = require("../../privateConfig.json");
 
 const app = express();
@@ -35,12 +36,15 @@ mongoose.connection
 //   res.send({"text": "graphql Server"})
 // })
 
+app.use(cors())
+
 // app.get("/", (req, res) => {
 //   res.send("GraphQL Server");
 // });
 
 app.use(
   "/graphql",
+  bodyParser.json(),
   graphqlHTTP({
     schema,
     graphiql: true,

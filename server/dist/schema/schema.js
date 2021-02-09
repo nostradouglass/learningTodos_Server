@@ -10,3 +10,4 @@ exports.default = new graphql_1.GraphQLSchema({
     query: root_query_types_1.default,
     mutation: mutations_1.mutation,
 });
+//# sourceMappingURL=schema.js.map

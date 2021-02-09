@@ -9,3 +9,4 @@ let TodoSchema = new mongoose_1.Schema({
 });
 const Todo = mongoose_1.model("todo", TodoSchema);
 exports.default = Todo;
+//# sourceMappingURL=todo.js.map

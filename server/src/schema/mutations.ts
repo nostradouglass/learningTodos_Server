@@ -24,7 +24,7 @@ export const mutation: GraphQLObjectType<string,() => object > = new GraphQLObje
         return new Todo({ todoItem }).save();
       },
     },
-    addCompleteToSong: {
+    changeCompleted: {
       type: TodoType,
       args: {
         id: { type: GraphQLID },

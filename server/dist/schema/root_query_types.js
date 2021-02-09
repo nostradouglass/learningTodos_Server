@@ -25,3 +25,4 @@ const RootQuery = new graphql_1.GraphQLObjectType({
     }),
 });
 exports.default = RootQuery;
+//# sourceMappingURL=root_query_types.js.map

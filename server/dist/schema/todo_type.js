@@ -13,3 +13,4 @@ const TodoType = new graphql_2.GraphQLObjectType({
     }),
 });
 exports.default = TodoType;
+//# sourceMappingURL=todo_type.js.map

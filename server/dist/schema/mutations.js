@@ -21,7 +21,7 @@ exports.mutation = new graphql_1.GraphQLObjectType({
                 return new Todo({ todoItem }).save();
             },
         },
-        addCompleteToSong: {
+        changeCompleted: {
             type: todo_type_1.default,
             args: {
                 id: { type: graphql_1.GraphQLID },
@@ -60,3 +60,4 @@ exports.mutation = new graphql_1.GraphQLObjectType({
         },
     },
 });
+//# sourceMappingURL=mutations.js.map
