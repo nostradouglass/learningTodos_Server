@@ -42,6 +42,7 @@ app.use(cors())
 //   res.send("GraphQL Server");
 // });
 
+
 app.use(
   "/graphql",
   bodyParser.json(),

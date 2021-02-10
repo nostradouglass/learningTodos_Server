@@ -16,9 +16,12 @@ exports.mutation = new graphql_1.GraphQLObjectType({
             type: todo_type_1.default,
             args: {
                 todoItem: { type: graphql_1.GraphQLString },
+                completed: { type: graphql_1.GraphQLBoolean },
+                percentComplete: { type: graphql_1.GraphQLInt },
+                notes: { type: graphql_1.GraphQLString }
             },
-            resolve(parentValue, { todoItem }) {
-                return new Todo({ todoItem }).save();
+            resolve(parentValue, { todoItem, completed, percentComplete, notes }) {
+                return new Todo({ todoItem, completed, percentComplete, notes }).save();
             },
         },
         changeCompleted: {

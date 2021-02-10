@@ -19,9 +19,12 @@ export const mutation: GraphQLObjectType<string,() => object > = new GraphQLObje
       type: TodoType,
       args: {
         todoItem: { type: GraphQLString },
+        completed: { type: GraphQLBoolean},
+        percentComplete: { type: GraphQLInt},
+        notes: { type: GraphQLString }
       },
-      resolve(parentValue, { todoItem }) {
-        return new Todo({ todoItem }).save();
+      resolve(parentValue, { todoItem, completed, percentComplete, notes }) {
+        return new Todo({ todoItem, completed, percentComplete, notes }).save();
       },
     },
     changeCompleted: {
