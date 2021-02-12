@@ -6,25 +6,46 @@ import graphql, {
   GraphQLInt,
 } from "graphql";
 import mongoose from "mongoose";
-import { compile } from "morgan";
 
 //import Todo from '../models/todo'
 import TodoType from "./todo_type";
 const Todo = mongoose.model("todo");
 
-export const mutation: GraphQLObjectType<string,() => object > = new GraphQLObjectType({
+export const mutation: GraphQLObjectType<
+  string,
+  () => object
+> = new GraphQLObjectType({
   name: "Mutation",
   fields: {
     addTodo: {
       type: TodoType,
       args: {
         todoItem: { type: GraphQLString },
-        completed: { type: GraphQLBoolean},
-        percentComplete: { type: GraphQLInt},
-        notes: { type: GraphQLString }
+        completed: { type: GraphQLBoolean },
+        percentComplete: { type: GraphQLInt },
+        notes: { type: GraphQLString },
+        officalTechName: { type: GraphQLString },
+        websiteUrl: { type: GraphQLString },
       },
-      resolve(parentValue, { todoItem, completed, percentComplete, notes }) {
-        return new Todo({ todoItem, completed, percentComplete, notes }).save();
+      resolve(
+        parentValue,
+        {
+          todoItem,
+          completed,
+          percentComplete,
+          notes,
+          officalTechName,
+          websiteUrl,
+        }
+      ) {
+        return new Todo({
+          todoItem,
+          completed,
+          percentComplete,
+          notes,
+          officalTechName,
+          websiteUrl,
+        }).save();
       },
     },
     changeCompleted: {

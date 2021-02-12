@@ -18,10 +18,19 @@ exports.mutation = new graphql_1.GraphQLObjectType({
                 todoItem: { type: graphql_1.GraphQLString },
                 completed: { type: graphql_1.GraphQLBoolean },
                 percentComplete: { type: graphql_1.GraphQLInt },
-                notes: { type: graphql_1.GraphQLString }
+                notes: { type: graphql_1.GraphQLString },
+                officalTechName: { type: graphql_1.GraphQLString },
+                websiteUrl: { type: graphql_1.GraphQLString },
             },
-            resolve(parentValue, { todoItem, completed, percentComplete, notes }) {
-                return new Todo({ todoItem, completed, percentComplete, notes }).save();
+            resolve(parentValue, { todoItem, completed, percentComplete, notes, officalTechName, websiteUrl, }) {
+                return new Todo({
+                    todoItem,
+                    completed,
+                    percentComplete,
+                    notes,
+                    officalTechName,
+                    websiteUrl,
+                }).save();
             },
         },
         changeCompleted: {

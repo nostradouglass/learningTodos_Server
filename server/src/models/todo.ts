@@ -12,7 +12,9 @@ let TodoSchema: Schema = new Schema({
   todoItem: { type: String },
   completed: { type: Boolean },
   percentComplete: { type: Number },
-  notes: {type: String}
+  notes: {type: String},
+  officalTechName: { type: String },
+  websiteUrl: {type: String}
 });
 
 

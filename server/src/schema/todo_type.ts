@@ -16,6 +16,8 @@ const TodoType: GraphQLObjectType<string, () => object> = new GraphQLObjectType(
       completed: { type: GraphQLBoolean },
       percentComplete: { type: GraphQLInt },
       notes: { type: GraphQLString },
+      officalTechName: { type: GraphQLString },
+      websiteUrl: { type: GraphQLString },
     }),
   }
 );

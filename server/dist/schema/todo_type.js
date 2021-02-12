@@ -10,6 +10,8 @@ const TodoType = new graphql_2.GraphQLObjectType({
         completed: { type: graphql_1.GraphQLBoolean },
         percentComplete: { type: graphql_1.GraphQLInt },
         notes: { type: graphql_2.GraphQLString },
+        officalTechName: { type: graphql_2.GraphQLString },
+        websiteUrl: { type: graphql_2.GraphQLString },
     }),
 });
 exports.default = TodoType;
