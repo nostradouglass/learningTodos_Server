@@ -69,7 +69,7 @@ app.use(
   })
 );
 
-let PORT = normalizePort(process.env.PORT || '4000');
+let PORT = normalizePort(process.env.PORT || 4000);
 
 
 function normalizePort(val: any) {

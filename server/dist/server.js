@@ -56,7 +56,19 @@ app.use("/graphql", body_parser_1.default.json(), express_graphql_1.graphqlHTTP(
     schema: schema_1.default,
     graphiql: true,
 }));
-let PORT = 4000;
+let PORT = normalizePort(process.env.PORT || 4000);
+function normalizePort(val) {
+    let port = parseInt(val, 10);
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+    return false;
+}
 app.listen(PORT, () => {
     console.log(`server Running on Port ${PORT}`);
 });
