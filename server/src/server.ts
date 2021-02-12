@@ -69,7 +69,26 @@ app.use(
   })
 );
 
-let PORT = 4000;
+let PORT = normalizePort(process.env.PORT || '4000');
+
+
+function normalizePort(val: any) {
+  let port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+
 
 app.listen(PORT, () => {
   console.log(`server Running on Port ${PORT}`);
