@@ -4,10 +4,10 @@
   "description": "Todos List for things to learn and things learned",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production node server/dist/server.js",
     "dev": "concurrently --kill-others \"npm run serve\" \"npm run watch\"",
     "serve": "nodemon server/dist/server.js",
-    "watch": "tsc -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "tsc -w"
   },
   "author": "Kelly Douglass",
   "license": "ISC",
