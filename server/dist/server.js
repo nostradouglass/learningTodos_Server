@@ -11,17 +11,27 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const schema_1 = __importDefault(require("./schema/schema"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
-let privateConfig = require("../../privateConfig.json");
 const app = express_1.default();
 app.use(compression_1.default());
 app.use(morgan_1.default("dev"));
-let username = process.env.USERNAME || privateConfig.mongoDB.userName;
-let password = process.env.PASSWORD || privateConfig.mongoDB.password;
-let databaseName = process.env.DATABASE_NAME || privateConfig.mongoDB.databaseName;
+let username;
+let password;
+let databaseName;
+if (process.env.NODE_ENV == 'production') {
+    username = process.env.USERNAME;
+    password = process.env.PASSWORD;
+    databaseName = process.env.DATABASE_NAME;
+}
+else {
+    let privateConfig = require("../../privateConfig.json");
+    username = privateConfig.mongoDB.userName;
+    password = privateConfig.mongoDB.password;
+    databaseName = privateConfig.mongoDB.databaseName;
+}
 // // Temp database until Learn Postgres and sequalize/Okrrom
 const MONGO_URI = `mongodb+srv://${username}:${password}@cluster0.ctnrv.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
 if (!MONGO_URI) {
-    throw new Error("You must provide a MongoLab URI");
+    throw new Error("You must provide a mongodb URI");
 }
 mongoose_1.default.Promise = global.Promise;
 mongoose_1.default.connect(MONGO_URI, {
@@ -30,8 +40,8 @@ mongoose_1.default.connect(MONGO_URI, {
     useFindAndModify: false,
 });
 mongoose_1.default.connection
-    .once("open", () => console.log("Connected to MongoDb instance."))
-    .on("error", (error) => console.log("Error connecting to MongoLab:", error));
+    .once("open", () => console.log("Connected to database instance."))
+    .on("error", (error) => console.log("Error connecting to database:", error));
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
 // Example of Route with tsc types. Not needed for now as used as graphql API Server for now.

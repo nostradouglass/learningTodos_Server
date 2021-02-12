@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server/dist/server.js",
     "dev": "concurrently --kill-others \"npm run serve\" \"npm run watch\"",
-    "serve": "nodemon server/dist/server.js",
+    "serve": "nodemon NODE_ENV=Development server/dist/server.js",
     "watch": "tsc -w"
   },
   "author": "Kelly Douglass",
