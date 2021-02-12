@@ -15,8 +15,11 @@ let privateConfig = require("../../privateConfig.json");
 const app = express_1.default();
 app.use(compression_1.default());
 app.use(morgan_1.default("dev"));
+let username = process.env.USERNAME || privateConfig.mongoDB.userName;
+let password = process.env.PASSWORD || privateConfig.mongoDB.password;
+let databaseName = process.env.DATABASE_NAME || privateConfig.mongoDB.databaseName;
 // // Temp database until Learn Postgres and sequalize/Okrrom
-const MONGO_URI = `mongodb+srv://${privateConfig.mongoDB.userName}:${privateConfig.mongoDB.password}@cluster0.ctnrv.mongodb.net/${privateConfig.mongoDB.databaseName}?retryWrites=true&w=majority`;
+const MONGO_URI = `mongodb+srv://${username}:${password}@cluster0.ctnrv.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
 if (!MONGO_URI) {
     throw new Error("You must provide a MongoLab URI");
 }
