@@ -65,7 +65,7 @@ app.use(
   bodyParser.json(),
   graphqlHTTP({
     schema,
-    graphiql: true,
+    graphiql: !(process.env.NODE_ENV == 'production')
   })
 );
 

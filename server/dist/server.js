@@ -54,7 +54,7 @@ app.use(cors_1.default());
 // });
 app.use("/graphql", body_parser_1.default.json(), express_graphql_1.graphqlHTTP({
     schema: schema_1.default,
-    graphiql: true,
+    graphiql: !(process.env.NODE_ENV == 'production')
 }));
 let PORT = normalizePort(process.env.PORT || 4000);
 function normalizePort(val) {
